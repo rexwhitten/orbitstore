@@ -1,0 +1,89 @@
+﻿@model IEnumerable<OrbitStore.Web.Data.OrganizationIdentityLinkHistory>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrganizationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdentityId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LinkTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuditAction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuditDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuditUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuditApp)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganizationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentityId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LinkTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuditAction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuditDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuditUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuditApp)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.AuditId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.AuditId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.AuditId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

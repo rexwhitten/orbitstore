@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OrbitStoreModelStoreContainer" CdmEntityContainer="OrbitStoreEntities">
+    <EntitySetMapping Name="Binder">
+      <EntityTypeMapping TypeName="OrbitStoreModel.Binder">
+        <MappingFragment StoreEntitySet="Binder">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BinderHistory">
+      <EntityTypeMapping TypeName="OrbitStoreModel.BinderHistory">
+        <MappingFragment StoreEntitySet="BinderHistory">
+          <ScalarProperty Name="AuditId" ColumnName="AuditId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="AuditAction" ColumnName="AuditAction" />
+          <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+          <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+          <ScalarProperty Name="AuditApp" ColumnName="AuditApp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BinderResourceLink">
+      <EntityTypeMapping TypeName="OrbitStoreModel.BinderResourceLink">
+        <MappingFragment StoreEntitySet="BinderResourceLink">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BinderId" ColumnName="BinderId" />
+          <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+          <ScalarProperty Name="LinkTypeId" ColumnName="LinkTypeId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BinderResourceLinkHistory">
+      <EntityTypeMapping TypeName="OrbitStoreModel.BinderResourceLinkHistory">
+        <MappingFragment StoreEntitySet="BinderResourceLinkHistory">
+          <ScalarProperty Name="AuditId" ColumnName="AuditId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BinderId" ColumnName="BinderId" />
+          <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+          <ScalarProperty Name="LinkTypeId" ColumnName="LinkTypeId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="AuditAction" ColumnName="AuditAction" />
+          <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+          <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+          <ScalarProperty Name="AuditApp" ColumnName="AuditApp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Identity">
+      <EntityTypeMapping TypeName="OrbitStoreModel.Identity">
+        <MappingFragment StoreEntitySet="Identity">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdentityBinderLink">
+      <EntityTypeMapping TypeName="OrbitStoreModel.IdentityBinderLink">
+        <MappingFragment StoreEntitySet="IdentityBinderLink">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
+          <ScalarProperty Name="BinderId" ColumnName="BinderId" />
+          <ScalarProperty Name="LinkTypeId" ColumnName="LinkTypeId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdentityBinderLinkHistory">
+      <EntityTypeMapping TypeName="OrbitStoreModel.IdentityBinderLinkHistory">
+        <MappingFragment StoreEntitySet="IdentityBinderLinkHistory">
+          <ScalarProperty Name="AuditId" ColumnName="AuditId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
+          <ScalarProperty Name="BinderId" ColumnName="BinderId" />
+          <ScalarProperty Name="LinkTypeId" ColumnName="LinkTypeId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="AuditAction" ColumnName="AuditAction" />
+          <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+          <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+          <ScalarProperty Name="AuditApp" ColumnName="AuditApp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdentityHistory">
+      <EntityTypeMapping TypeName="OrbitStoreModel.IdentityHistory">
+        <MappingFragment StoreEntitySet="IdentityHistory">
+          <ScalarProperty Name="AuditId" ColumnName="AuditId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="AuditAction" ColumnName="AuditAction" />
+          <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+          <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+          <ScalarProperty Name="AuditApp" ColumnName="AuditApp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinkType">
+      <EntityTypeMapping TypeName="OrbitStoreModel.LinkType">
+        <MappingFragment StoreEntitySet="LinkType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LinkTypeHistory">
+      <EntityTypeMapping TypeName="OrbitStoreModel.LinkTypeHistory">
+        <MappingFragment StoreEntitySet="LinkTypeHistory">
+          <ScalarProperty Name="AuditId" ColumnName="AuditId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="AuditAction" ColumnName="AuditAction" />
+          <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+          <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+          <ScalarProperty Name="AuditApp" ColumnName="AuditApp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organization">
+      <EntityTypeMapping TypeName="OrbitStoreModel.Organization">
+        <MappingFragment StoreEntitySet="Organization">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizationHistory">
+      <EntityTypeMapping TypeName="OrbitStoreModel.OrganizationHistory">
+        <MappingFragment StoreEntitySet="OrganizationHistory">
+          <ScalarProperty Name="AuditId" ColumnName="AuditId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="AuditAction" ColumnName="AuditAction" />
+          <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+          <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+          <ScalarProperty Name="AuditApp" ColumnName="AuditApp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizationIdentityLink">
+      <EntityTypeMapping TypeName="OrbitStoreModel.OrganizationIdentityLink">
+        <MappingFragment StoreEntitySet="OrganizationIdentityLink">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
+          <ScalarProperty Name="LinkTypeId" ColumnName="LinkTypeId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizationIdentityLinkHistory">
+      <EntityTypeMapping TypeName="OrbitStoreModel.OrganizationIdentityLinkHistory">
+        <MappingFragment StoreEntitySet="OrganizationIdentityLinkHistory">
+          <ScalarProperty Name="AuditId" ColumnName="AuditId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
+          <ScalarProperty Name="LinkTypeId" ColumnName="LinkTypeId" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="AuditAction" ColumnName="AuditAction" />
+          <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+          <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+          <ScalarProperty Name="AuditApp" ColumnName="AuditApp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resource">
+      <EntityTypeMapping TypeName="OrbitStoreModel.Resource">
+        <MappingFragment StoreEntitySet="Resource">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResourceHistory">
+      <EntityTypeMapping TypeName="OrbitStoreModel.ResourceHistory">
+        <MappingFragment StoreEntitySet="ResourceHistory">
+          <ScalarProperty Name="AuditId" ColumnName="AuditId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="AuditAction" ColumnName="AuditAction" />
+          <ScalarProperty Name="AuditDate" ColumnName="AuditDate" />
+          <ScalarProperty Name="AuditUser" ColumnName="AuditUser" />
+          <ScalarProperty Name="AuditApp" ColumnName="AuditApp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BinderResourceDirectory">
+      <EntityTypeMapping TypeName="OrbitStoreModel.BinderResourceDirectory">
+        <MappingFragment StoreEntitySet="BinderResourceDirectory">
+          <ScalarProperty Name="BinderId" ColumnName="BinderId" />
+          <ScalarProperty Name="BinderName" ColumnName="BinderName" />
+          <ScalarProperty Name="BinderPath" ColumnName="BinderPath" />
+          <ScalarProperty Name="BinderActive" ColumnName="BinderActive" />
+          <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+          <ScalarProperty Name="ResourcePath" ColumnName="ResourcePath" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="ResourceActive" ColumnName="ResourceActive" />
+          <ScalarProperty Name="LinkName" ColumnName="LinkName" />
+          <ScalarProperty Name="LinkPath" ColumnName="LinkPath" />
+          <ScalarProperty Name="LinkActive" ColumnName="LinkActive" />
+          <ScalarProperty Name="DirectoryPath" ColumnName="DirectoryPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IdentityBinderDirectory">
+      <EntityTypeMapping TypeName="OrbitStoreModel.IdentityBinderDirectory">
+        <MappingFragment StoreEntitySet="IdentityBinderDirectory">
+          <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
+          <ScalarProperty Name="IdentityName" ColumnName="IdentityName" />
+          <ScalarProperty Name="IdentityActive" ColumnName="IdentityActive" />
+          <ScalarProperty Name="BinderId" ColumnName="BinderId" />
+          <ScalarProperty Name="BinderName" ColumnName="BinderName" />
+          <ScalarProperty Name="BinderPath" ColumnName="BinderPath" />
+          <ScalarProperty Name="BinderActive" ColumnName="BinderActive" />
+          <ScalarProperty Name="LinkName" ColumnName="LinkName" />
+          <ScalarProperty Name="LinkPath" ColumnName="LinkPath" />
+          <ScalarProperty Name="LinkActive" ColumnName="LinkActive" />
+          <ScalarProperty Name="DirectoryPath" ColumnName="DirectoryPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizationIdentityDirectory">
+      <EntityTypeMapping TypeName="OrbitStoreModel.OrganizationIdentityDirectory">
+        <MappingFragment StoreEntitySet="OrganizationIdentityDirectory">
+          <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+          <ScalarProperty Name="OrganizationPath" ColumnName="OrganizationPath" />
+          <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+          <ScalarProperty Name="OrganizationActive" ColumnName="OrganizationActive" />
+          <ScalarProperty Name="IdentityId" ColumnName="IdentityId" />
+          <ScalarProperty Name="IdentityName" ColumnName="IdentityName" />
+          <ScalarProperty Name="IdentityActive" ColumnName="IdentityActive" />
+          <ScalarProperty Name="LinkPath" ColumnName="LinkPath" />
+          <ScalarProperty Name="linkName" ColumnName="linkName" />
+          <ScalarProperty Name="LinkActive" ColumnName="LinkActive" />
+          <ScalarProperty Name="DirectoryPath" ColumnName="DirectoryPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

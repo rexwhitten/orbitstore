@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrbitStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Binder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Path" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="BinderResourceLink" Relationship="Self.FK_BinderResource_Binder" FromRole="Binder" ToRole="BinderResourceLink" />
+    <NavigationProperty Name="IdentityBinderLink" Relationship="Self.FK_IdentityBinder_Binder" FromRole="Binder" ToRole="IdentityBinderLink" />
+  </EntityType>
+  <EntityType Name="BinderHistory">
+    <Key>
+      <PropertyRef Name="AuditId" />
+    </Key>
+    <Property Name="AuditId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="AuditAction" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AuditDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuditApp" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BinderResourceLink">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BinderId" Type="Int32" Nullable="false" />
+    <Property Name="ResourceId" Type="Int32" Nullable="false" />
+    <Property Name="LinkTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Binder" Relationship="Self.FK_BinderResource_Binder" FromRole="BinderResourceLink" ToRole="Binder" />
+    <NavigationProperty Name="Resource" Relationship="Self.FK_BinderResource_Resource" FromRole="BinderResourceLink" ToRole="Resource" />
+    <NavigationProperty Name="LinkType" Relationship="Self.FK_OrganiztionResource_LinkType" FromRole="BinderResourceLink" ToRole="LinkType" />
+  </EntityType>
+  <EntityType Name="BinderResourceLinkHistory">
+    <Key>
+      <PropertyRef Name="AuditId" />
+    </Key>
+    <Property Name="AuditId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="BinderId" Type="Int32" Nullable="false" />
+    <Property Name="ResourceId" Type="Int32" Nullable="false" />
+    <Property Name="LinkTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="AuditAction" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AuditDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuditApp" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Identity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="IdentityBinderLink" Relationship="Self.FK_IdentityBinder_Identity" FromRole="Identity" ToRole="IdentityBinderLink" />
+    <NavigationProperty Name="OrganizationIdentityLink" Relationship="Self.FK_OrganizationIdentity_Identity" FromRole="Identity" ToRole="OrganizationIdentityLink" />
+  </EntityType>
+  <EntityType Name="IdentityBinderLink">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdentityId" Type="Int32" Nullable="false" />
+    <Property Name="BinderId" Type="Int32" Nullable="false" />
+    <Property Name="LinkTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Binder" Relationship="Self.FK_IdentityBinder_Binder" FromRole="IdentityBinderLink" ToRole="Binder" />
+    <NavigationProperty Name="Identity" Relationship="Self.FK_IdentityBinder_Identity" FromRole="IdentityBinderLink" ToRole="Identity" />
+    <NavigationProperty Name="LinkType" Relationship="Self.FK_OrganiztionBinder_LinkType" FromRole="IdentityBinderLink" ToRole="LinkType" />
+  </EntityType>
+  <EntityType Name="IdentityBinderLinkHistory">
+    <Key>
+      <PropertyRef Name="AuditId" />
+    </Key>
+    <Property Name="AuditId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdentityId" Type="Int32" Nullable="false" />
+    <Property Name="BinderId" Type="Int32" Nullable="false" />
+    <Property Name="LinkTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="AuditAction" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AuditDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuditApp" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="IdentityHistory">
+    <Key>
+      <PropertyRef Name="AuditId" />
+    </Key>
+    <Property Name="AuditId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="AuditAction" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AuditDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuditApp" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LinkType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Path" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="BinderResourceLink" Relationship="Self.FK_OrganiztionResource_LinkType" FromRole="LinkType" ToRole="BinderResourceLink" />
+    <NavigationProperty Name="IdentityBinderLink" Relationship="Self.FK_OrganiztionBinder_LinkType" FromRole="LinkType" ToRole="IdentityBinderLink" />
+    <NavigationProperty Name="OrganizationIdentityLink" Relationship="Self.FK_OrganiztionIdentity_LinkType" FromRole="LinkType" ToRole="OrganizationIdentityLink" />
+  </EntityType>
+  <EntityType Name="LinkTypeHistory">
+    <Key>
+      <PropertyRef Name="AuditId" />
+    </Key>
+    <Property Name="AuditId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="AuditAction" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AuditDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuditApp" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Organization">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Path" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="OrganizationIdentityLink" Relationship="Self.FK_OrganizationIdentity_Organization" FromRole="Organization" ToRole="OrganizationIdentityLink" />
+  </EntityType>
+  <EntityType Name="OrganizationHistory">
+    <Key>
+      <PropertyRef Name="AuditId" />
+    </Key>
+    <Property Name="AuditId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="AuditAction" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AuditDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuditApp" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="OrganizationIdentityLink">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrganizationId" Type="Int32" Nullable="false" />
+    <Property Name="IdentityId" Type="Int32" Nullable="false" />
+    <Property Name="LinkTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Identity" Relationship="Self.FK_OrganizationIdentity_Identity" FromRole="OrganizationIdentityLink" ToRole="Identity" />
+    <NavigationProperty Name="LinkType" Relationship="Self.FK_OrganiztionIdentity_LinkType" FromRole="OrganizationIdentityLink" ToRole="LinkType" />
+    <NavigationProperty Name="Organization" Relationship="Self.FK_OrganizationIdentity_Organization" FromRole="OrganizationIdentityLink" ToRole="Organization" />
+  </EntityType>
+  <EntityType Name="OrganizationIdentityLinkHistory">
+    <Key>
+      <PropertyRef Name="AuditId" />
+    </Key>
+    <Property Name="AuditId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="OrganizationId" Type="Int32" Nullable="false" />
+    <Property Name="IdentityId" Type="Int32" Nullable="false" />
+    <Property Name="LinkTypeId" Type="Int32" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="AuditAction" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AuditDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuditApp" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Resource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Path" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="BinderResourceLink" Relationship="Self.FK_BinderResource_Resource" FromRole="Resource" ToRole="BinderResourceLink" />
+  </EntityType>
+  <EntityType Name="ResourceHistory">
+    <Key>
+      <PropertyRef Name="AuditId" />
+    </Key>
+    <Property Name="AuditId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="AuditAction" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="AuditDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AuditUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AuditApp" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BinderResourceDirectory">
+    <Key>
+      <PropertyRef Name="BinderId" />
+      <PropertyRef Name="BinderName" />
+      <PropertyRef Name="BinderPath" />
+      <PropertyRef Name="BinderActive" />
+      <PropertyRef Name="ResourceId" />
+      <PropertyRef Name="ResourcePath" />
+      <PropertyRef Name="ResourceName" />
+      <PropertyRef Name="ResourceActive" />
+      <PropertyRef Name="LinkName" />
+      <PropertyRef Name="LinkPath" />
+      <PropertyRef Name="LinkActive" />
+      <PropertyRef Name="DirectoryPath" />
+    </Key>
+    <Property Name="BinderId" Type="Int32" Nullable="false" />
+    <Property Name="BinderName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BinderPath" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BinderActive" Type="Boolean" Nullable="false" />
+    <Property Name="ResourceId" Type="Int32" Nullable="false" />
+    <Property Name="ResourcePath" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ResourceName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ResourceActive" Type="Boolean" Nullable="false" />
+    <Property Name="LinkName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LinkPath" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LinkActive" Type="Boolean" Nullable="false" />
+    <Property Name="DirectoryPath" Type="String" MaxLength="1538" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IdentityBinderDirectory">
+    <Key>
+      <PropertyRef Name="IdentityId" />
+      <PropertyRef Name="IdentityName" />
+      <PropertyRef Name="IdentityActive" />
+      <PropertyRef Name="BinderId" />
+      <PropertyRef Name="BinderName" />
+      <PropertyRef Name="BinderPath" />
+      <PropertyRef Name="BinderActive" />
+      <PropertyRef Name="LinkName" />
+      <PropertyRef Name="LinkPath" />
+      <PropertyRef Name="LinkActive" />
+      <PropertyRef Name="DirectoryPath" />
+    </Key>
+    <Property Name="IdentityId" Type="Int32" Nullable="false" />
+    <Property Name="IdentityName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdentityActive" Type="Boolean" Nullable="false" />
+    <Property Name="BinderId" Type="Int32" Nullable="false" />
+    <Property Name="BinderName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BinderPath" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BinderActive" Type="Boolean" Nullable="false" />
+    <Property Name="LinkName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LinkPath" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LinkActive" Type="Boolean" Nullable="false" />
+    <Property Name="DirectoryPath" Type="String" MaxLength="1154" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrganizationIdentityDirectory">
+    <Key>
+      <PropertyRef Name="OrganizationId" />
+      <PropertyRef Name="OrganizationPath" />
+      <PropertyRef Name="OrganizationName" />
+      <PropertyRef Name="OrganizationActive" />
+      <PropertyRef Name="IdentityId" />
+      <PropertyRef Name="IdentityName" />
+      <PropertyRef Name="IdentityActive" />
+      <PropertyRef Name="LinkPath" />
+      <PropertyRef Name="linkName" />
+      <PropertyRef Name="LinkActive" />
+      <PropertyRef Name="DirectoryPath" />
+    </Key>
+    <Property Name="OrganizationId" Type="Int32" Nullable="false" />
+    <Property Name="OrganizationPath" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OrganizationName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OrganizationActive" Type="Boolean" Nullable="false" />
+    <Property Name="IdentityId" Type="Int32" Nullable="false" />
+    <Property Name="IdentityName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdentityActive" Type="Boolean" Nullable="false" />
+    <Property Name="LinkPath" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="linkName" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LinkActive" Type="Boolean" Nullable="false" />
+    <Property Name="DirectoryPath" Type="String" MaxLength="1154" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_BinderResource_Binder">
+    <End Role="Binder" Type="Self.Binder" Multiplicity="1" />
+    <End Role="BinderResourceLink" Type="Self.BinderResourceLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Binder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BinderResourceLink">
+        <PropertyRef Name="BinderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IdentityBinder_Binder">
+    <End Role="Binder" Type="Self.Binder" Multiplicity="1" />
+    <End Role="IdentityBinderLink" Type="Self.IdentityBinderLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Binder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IdentityBinderLink">
+        <PropertyRef Name="BinderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BinderResource_Resource">
+    <End Role="Resource" Type="Self.Resource" Multiplicity="1" />
+    <End Role="BinderResourceLink" Type="Self.BinderResourceLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Resource">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BinderResourceLink">
+        <PropertyRef Name="ResourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrganiztionResource_LinkType">
+    <End Role="LinkType" Type="Self.LinkType" Multiplicity="1" />
+    <End Role="BinderResourceLink" Type="Self.BinderResourceLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinkType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BinderResourceLink">
+        <PropertyRef Name="LinkTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IdentityBinder_Identity">
+    <End Role="Identity" Type="Self.Identity" Multiplicity="1" />
+    <End Role="IdentityBinderLink" Type="Self.IdentityBinderLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Identity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IdentityBinderLink">
+        <PropertyRef Name="IdentityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrganizationIdentity_Identity">
+    <End Role="Identity" Type="Self.Identity" Multiplicity="1" />
+    <End Role="OrganizationIdentityLink" Type="Self.OrganizationIdentityLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Identity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrganizationIdentityLink">
+        <PropertyRef Name="IdentityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrganiztionBinder_LinkType">
+    <End Role="LinkType" Type="Self.LinkType" Multiplicity="1" />
+    <End Role="IdentityBinderLink" Type="Self.IdentityBinderLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinkType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IdentityBinderLink">
+        <PropertyRef Name="LinkTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrganiztionIdentity_LinkType">
+    <End Role="LinkType" Type="Self.LinkType" Multiplicity="1" />
+    <End Role="OrganizationIdentityLink" Type="Self.OrganizationIdentityLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LinkType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrganizationIdentityLink">
+        <PropertyRef Name="LinkTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrganizationIdentity_Organization">
+    <End Role="Organization" Type="Self.Organization" Multiplicity="1" />
+    <End Role="OrganizationIdentityLink" Type="Self.OrganizationIdentityLink" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organization">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrganizationIdentityLink">
+        <PropertyRef Name="OrganizationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OrbitStoreEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Binder" EntityType="Self.Binder" />
+    <EntitySet Name="BinderHistory" EntityType="Self.BinderHistory" />
+    <EntitySet Name="BinderResourceLink" EntityType="Self.BinderResourceLink" />
+    <EntitySet Name="BinderResourceLinkHistory" EntityType="Self.BinderResourceLinkHistory" />
+    <EntitySet Name="Identity" EntityType="Self.Identity" />
+    <EntitySet Name="IdentityBinderLink" EntityType="Self.IdentityBinderLink" />
+    <EntitySet Name="IdentityBinderLinkHistory" EntityType="Self.IdentityBinderLinkHistory" />
+    <EntitySet Name="IdentityHistory" EntityType="Self.IdentityHistory" />
+    <EntitySet Name="LinkType" EntityType="Self.LinkType" />
+    <EntitySet Name="LinkTypeHistory" EntityType="Self.LinkTypeHistory" />
+    <EntitySet Name="Organization" EntityType="Self.Organization" />
+    <EntitySet Name="OrganizationHistory" EntityType="Self.OrganizationHistory" />
+    <EntitySet Name="OrganizationIdentityLink" EntityType="Self.OrganizationIdentityLink" />
+    <EntitySet Name="OrganizationIdentityLinkHistory" EntityType="Self.OrganizationIdentityLinkHistory" />
+    <EntitySet Name="Resource" EntityType="Self.Resource" />
+    <EntitySet Name="ResourceHistory" EntityType="Self.ResourceHistory" />
+    <EntitySet Name="BinderResourceDirectory" EntityType="Self.BinderResourceDirectory" />
+    <EntitySet Name="IdentityBinderDirectory" EntityType="Self.IdentityBinderDirectory" />
+    <EntitySet Name="OrganizationIdentityDirectory" EntityType="Self.OrganizationIdentityDirectory" />
+    <AssociationSet Name="FK_BinderResource_Binder" Association="Self.FK_BinderResource_Binder">
+      <End Role="Binder" EntitySet="Binder" />
+      <End Role="BinderResourceLink" EntitySet="BinderResourceLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IdentityBinder_Binder" Association="Self.FK_IdentityBinder_Binder">
+      <End Role="Binder" EntitySet="Binder" />
+      <End Role="IdentityBinderLink" EntitySet="IdentityBinderLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BinderResource_Resource" Association="Self.FK_BinderResource_Resource">
+      <End Role="Resource" EntitySet="Resource" />
+      <End Role="BinderResourceLink" EntitySet="BinderResourceLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrganiztionResource_LinkType" Association="Self.FK_OrganiztionResource_LinkType">
+      <End Role="LinkType" EntitySet="LinkType" />
+      <End Role="BinderResourceLink" EntitySet="BinderResourceLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IdentityBinder_Identity" Association="Self.FK_IdentityBinder_Identity">
+      <End Role="Identity" EntitySet="Identity" />
+      <End Role="IdentityBinderLink" EntitySet="IdentityBinderLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrganizationIdentity_Identity" Association="Self.FK_OrganizationIdentity_Identity">
+      <End Role="Identity" EntitySet="Identity" />
+      <End Role="OrganizationIdentityLink" EntitySet="OrganizationIdentityLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrganiztionBinder_LinkType" Association="Self.FK_OrganiztionBinder_LinkType">
+      <End Role="LinkType" EntitySet="LinkType" />
+      <End Role="IdentityBinderLink" EntitySet="IdentityBinderLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrganiztionIdentity_LinkType" Association="Self.FK_OrganiztionIdentity_LinkType">
+      <End Role="LinkType" EntitySet="LinkType" />
+      <End Role="OrganizationIdentityLink" EntitySet="OrganizationIdentityLink" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrganizationIdentity_Organization" Association="Self.FK_OrganizationIdentity_Organization">
+      <End Role="Organization" EntitySet="Organization" />
+      <End Role="OrganizationIdentityLink" EntitySet="OrganizationIdentityLink" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

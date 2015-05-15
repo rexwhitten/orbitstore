@@ -1,0 +1,58 @@
+﻿@model OrbitStore.Web.Data.OrganizationIdentityLink
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>OrganizationIdentityLink</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Active)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Active)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Identity.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Identity.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LinkType.Path)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LinkType.Path)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Organization.Path)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Organization.Path)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
